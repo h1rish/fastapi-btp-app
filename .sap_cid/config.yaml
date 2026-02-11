@@ -1,13 +1,4 @@
-general:
-  buildTool: "shell"
-
 stages:
-  build:
-    shell:
-      - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
-      - docker build -t harish496/fastapi-btp-app .
-      - docker push harish496/fastapi-btp-app
-
   deploy:
     type: cfDeploy
     apiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
