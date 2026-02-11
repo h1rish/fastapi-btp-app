@@ -1,0 +1,7 @@
+applications:
+  - name: fastapi-btp-app
+    memory: 512M
+    instances: 1
+    docker:
+      image: harish496/fastapi-btp-app:latest
+    random-route: true
