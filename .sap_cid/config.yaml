@@ -1,15 +1,15 @@
 general:
-  buildTool: pythonBuild
-  buildToolVersion: "3.11"
+  buildTool: mta
+  buildToolVersion: "MBTJ11N18"
 
 stages:
   build:
-    type: pythonBuild
+    type: mtaBuild
 
   deploy:
-    type: cfDeploy
-    apiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
-    org: "ec4edb2ctrial"
-    space: "dev"
-    appName: "fastapi-btp-app"
+    type: cloudFoundryDeploy
+    cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
+    cfOrg: "ec4edb2ctrial"
+    cfSpace: "dev"
+    cfAppName: "fastapi-btp-app"
     credentialsId: "sapcreds"
