@@ -1,9 +1,8 @@
-stages:
-  build:
-    type: shell
-    commands:
-      - echo "Skipping build stage because we use a public Docker image"
+general:
+  buildTool: pythonBuild
+  buildToolVersion: "3.11"
 
+stages:
   deploy:
     type: cfDeploy
     apiEndpoint: "https://api.cf.us10-001.hana.ondemand.com"
