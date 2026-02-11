@@ -1,15 +1,12 @@
 general:
-  buildTool: "docker"
+  buildTool: "shell"
 
 stages:
   build:
-    type: dockerBuild
-    dockerfilePath: "./Dockerfile"
-    imageName: "harish496/fastapi-btp-app"
-    tag: "latest"
-    registry:
-      url: "https://index.docker.io/v1/"
-      credentialsId: "dockerhub"
+    shell:
+      - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+      - docker build -t harish496/fastapi-btp-app .
+      - docker push harish496/fastapi-btp-app
 
   deploy:
     type: cfDeploy
