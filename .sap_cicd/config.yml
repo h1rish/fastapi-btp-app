@@ -1,0 +1,17 @@
+general:
+  buildTool: "docker"
+
+stages:
+  Build:
+    dockerBuild: true
+    dockerImageName: "harish496/fastapi-btp-app"
+    dockerRegistryUrl: "https://index.docker.io/v1/"
+    dockerRegistryCredentialsId: "dockerhub-credentials"
+
+  Deploy:
+    cfDeploy: true
+    cfApiEndpoint: "https://api.cf.eu10.hana.ondemand.com"  # change region if needed
+    cfOrg: "YOUR_CF_ORG"
+    cfSpace: "YOUR_CF_SPACE"
+    cfAppName: "fastapi-btp-app"
+    cfCredentialsId: "cf-credentials"
